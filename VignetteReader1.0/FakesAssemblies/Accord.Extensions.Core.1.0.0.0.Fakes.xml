@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Accord.Extensions.Core.1.0.0.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions">
+            <summary>Type shim de Accord.Extensions.BinaryTree.BinaryTreeArrayExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.GetBinaryTreeDepthOf1IListOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.GetBinaryTreeDepth(IList`1&lt;!!0&gt; collection)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.GetLeftChildOf1IListOfM0Int32M0Out``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.OutFunc{System.Collections.Generic.IList{``0},System.Int32,``0,System.Boolean})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.GetLeftChild(IList`1&lt;!!0&gt; collection, Int32 parentIndex, !!0&amp; node)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.GetRightChildOf1IListOfM0Int32M0Out``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.OutFunc{System.Collections.Generic.IList{``0},System.Int32,``0,System.Boolean})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.GetRightChild(IList`1&lt;!!0&gt; collection, Int32 parentIndex, !!0&amp; node)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.LeafIndicesOf1IListOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{System.Int32}})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.LeafIndices(IList`1&lt;!!0&gt; collection)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.LeftChildIndexOf1IListOfM0Int32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,System.Int32})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.LeftChildIndex(IList`1&lt;!!0&gt; collection, Int32 parentIndex)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.ParentIndexOf1IListOfM0Int32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,System.Int32})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.ParentIndex(IList`1&lt;!!0&gt; collection, Int32 nodeIndex)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.ReplaceLeftChildOf1IListOfM0Int32M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,``0,System.Boolean})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.ReplaceLeftChild(IList`1&lt;!!0&gt; collection, Int32 parentIndex, !!0 child)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.ReplaceRightChildOf1IListOfM0Int32M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,``0,System.Boolean})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.ReplaceRightChild(IList`1&lt;!!0&gt; collection, Int32 parentIndex, !!0 child)</summary>
+        </member>
+        <member name="M:Accord.Extensions.BinaryTree.Fakes.ShimBinaryTreeArrayExtensions.RightChildIndexOf1IListOfM0Int32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,System.Int32})">
+            <summary>Définit le shim de BinaryTreeArrayExtensions.RightChildIndex(IList`1&lt;!!0&gt; collection, Int32 parentIndex)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimDiagnostics">
+            <summary>Type shim de Accord.Extensions.Diagnostics</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDiagnostics.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDiagnostics.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDiagnostics.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDiagnostics.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDiagnostics.MeasureAverageTimeActionOfInt32Int32">
+            <summary>Définit le shim de Diagnostics.MeasureAverageTime(Action`1&lt;Int32&gt; action, Int32 executionCount)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDiagnostics.MeasureTimeAction">
+            <summary>Définit le shim de Diagnostics.MeasureTime(Action action)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDiagnostics.StartConsoleLoggingStringBoolean">
+            <summary>Définit le shim de Diagnostics.StartConsoleLogging(String fileName, Boolean append)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDiagnostics.StaticConstructor">
+            <summary>Définit le shim de Diagnostics.Diagnostics()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDiagnostics.StopConsoleLogging">
+            <summary>Définit le shim de Diagnostics.StopConsoleLogging()</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimDictonaryMatExtensions">
+            <summary>Type shim de Accord.Extensions.DictonaryMatExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.AddOf2IDictionaryOfPairOfM0M1M0M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},``0,``0,``1})">
+            <summary>Définit le shim de DictonaryMatExtensions.Add(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat, !!0 firstKey, !!0 secondKey, !!1 value)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.AddOrUpdateOf2IDictionaryOfPairOfM0M1M0M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},``0,``0,``1})">
+            <summary>Définit le shim de DictonaryMatExtensions.AddOrUpdate(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat, !!0 firstKey, !!0 secondKey, !!1 value)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.AsEnumerableOf2IDictionaryOfPairOfM0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},System.Collections.Generic.IEnumerable{``1}})">
+            <summary>Définit le shim de DictonaryMatExtensions.AsEnumerable(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.ContainsKeyOf2IDictionaryOfPairOfM0M1M0M0``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},``0,``0,System.Boolean})">
+            <summary>Définit le shim de DictonaryMatExtensions.ContainsKey(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat, !!0 firstKey, !!0 secondKey)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.GetKeysOf2IDictionaryOfPairOfM0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Définit le shim de DictonaryMatExtensions.GetKeys(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.GetOf2IDictionaryOfPairOfM0M1M0M0``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},``0,``0,``1})">
+            <summary>Définit le shim de DictonaryMatExtensions.Get(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat, !!0 firstKey, !!0 secondKey)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.RemoveOf2IDictionaryOfPairOfM0M1M0M0``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},``0,``0,System.Boolean})">
+            <summary>Définit le shim de DictonaryMatExtensions.Remove(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat, !!0 firstKey, !!0 secondKey)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.ToSparseMatrixOf2IEnumerableOfM1FuncOfM1M0FuncOfM1M0``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0},System.Func{``1,``0},System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1}})">
+            <summary>Définit le shim de DictonaryMatExtensions.ToSparseMatrix(IEnumerable`1&lt;!!1&gt; values, Func`2&lt;!!1,!!0&gt; firstKeySelector, Func`2&lt;!!1,!!0&gt; secondKeySelector)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.ToSparseMatrixOf3IEnumerableOfM2FuncOfM2M0FuncOfM2M0FuncOfM2M1``3(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``2},System.Func{``2,``0},System.Func{``2,``0},System.Func{``2,``1},System.Collections.Generic.Dictionary{Accord.Extensions.Pair{``0},``1}})">
+            <summary>Définit le shim de DictonaryMatExtensions.ToSparseMatrix(IEnumerable`1&lt;!!2&gt; values, Func`2&lt;!!2,!!0&gt; firstKeySelector, Func`2&lt;!!2,!!0&gt; secondKeySelector, Func`2&lt;!!2,!!1&gt; valueSelector)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimDictonaryMatExtensions.TryGetValueOf2IDictionaryOfPairOfM0M1M0M0M1Out``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.OutFunc{System.Collections.Generic.IDictionary{Accord.Extensions.Pair{``0},``1},``0,``0,``1,System.Boolean})">
+            <summary>Définit le shim de DictonaryMatExtensions.TryGetValue(IDictionary`2&lt;Pair`1&lt;!!0&gt;,!!1&gt; mat, !!0 firstKey, !!0 secondKey, !!1&amp; value)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimEnumerableExtensions">
+            <summary>Type shim de Accord.Extensions.EnumerableExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.ApplyInPlaceOf1IListOfM0IEnumerableOfInt32FuncOfM0M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{System.Int32},System.Func{``0,``0}})">
+            <summary>Définit le shim de EnumerableExtensions.ApplyInPlace(IList`1&lt;!!0&gt; src, IEnumerable`1&lt;Int32&gt; indicies, Func`2&lt;!!0,!!0&gt; func)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimEnumerableExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.CreateOf1Int32FuncOfInt32M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Int32,System.Func{System.Int32,``0},``0[]})">
+            <summary>Définit le shim de EnumerableExtensions.Create(Int32 numberOfElements, Func`2&lt;Int32,!!0&gt; creator)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.EnumerateWithOf3IEnumerableOfM0IEnumerableOfM1FuncOfM0M1M2``3(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2},System.Collections.Generic.IEnumerable{``2}})">
+            <summary>Définit le shim de EnumerableExtensions.EnumerateWith(IEnumerable`1&lt;!!0&gt; first, IEnumerable`1&lt;!!1&gt; second, Func`3&lt;!!0,!!1,!!2&gt; function)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.GetAtOf1IListOfM0IEnumerableOfInt32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{System.Int32},``0[]})">
+            <summary>Définit le shim de EnumerableExtensions.GetAt(IList`1&lt;!!0&gt; src, IEnumerable`1&lt;Int32&gt; indicies)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimEnumerableExtensions.GetRangeInt32Int32Int32">
+            <summary>Définit le shim de EnumerableExtensions.GetRange(Int32 start, Int32 end, Int32 step)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.GetRangeOf1IListOfM0Int32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,``0[]})">
+            <summary>Définit le shim de EnumerableExtensions.GetRange(IList`1&lt;!!0&gt; src, Int32 startIndex)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.GetRangeOf1IListOfM0Int32Int32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},System.Int32,System.Int32,``0[]})">
+            <summary>Définit le shim de EnumerableExtensions.GetRange(IList`1&lt;!!0&gt; src, Int32 startIndex, Int32 length)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.GetRangeOf1IListOfM0IntRange``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IList{``0},AForge.IntRange,``0[]})">
+            <summary>Définit le shim de EnumerableExtensions.GetRange(IList`1&lt;!!0&gt; src, IntRange range)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimEnumerableExtensions.GetRangeSingleSingleSingle">
+            <summary>Définit le shim de EnumerableExtensions.GetRange(Single start, Single end, Single step)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.RemoveAtOf1IListOfM0IEnumerableOfInt32``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{System.Int32}})">
+            <summary>Définit le shim de EnumerableExtensions.RemoveAt(IList`1&lt;!!0&gt; src, IEnumerable`1&lt;Int32&gt; elementIndices)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.RemoveOf1IListOfM0IEnumerableOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>Définit le shim de EnumerableExtensions.Remove(IList`1&lt;!!0&gt; src, IEnumerable`1&lt;!!0&gt; elements)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimEnumerableExtensions.SetAtOf1IListOfM0IEnumerableOfInt32IListOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IList{``0}})">
+            <summary>Définit le shim de EnumerableExtensions.SetAt(IList`1&lt;!!0&gt; src, IEnumerable`1&lt;Int32&gt; indicies, IList`1&lt;!!0&gt; newValues)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions">
+            <summary>Type shim de Accord.Extensions.IndexOfMaxExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.IndexOfMaxOf1IEnumerableOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Int32})">
+            <summary>Définit le shim de IndexOfMaxExtensions.IndexOfMax(IEnumerable`1&lt;!!0&gt; collection)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.IndexOfMaxOf2IEnumerableOfM0FuncOfM0Int32M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1},System.Int32})">
+            <summary>Définit le shim de IndexOfMaxExtensions.IndexOfMax(IEnumerable`1&lt;!!0&gt; collection, Func`3&lt;!!0,Int32,!!1&gt; selector)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMaxExtensions.IndexOfMaxOf2IEnumerableOfM0FuncOfM0Int32M1IComparerOfM1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1},System.Collections.Generic.IComparer{``1},System.Int32})">
+            <summary>Définit le shim de IndexOfMaxExtensions.IndexOfMax(IEnumerable`1&lt;!!0&gt; collection, Func`3&lt;!!0,Int32,!!1&gt; selector, IComparer`1&lt;!!1&gt; comparer)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimIndexOfMinExtensions">
+            <summary>Type shim de Accord.Extensions.IndexOfMinExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.IndexOfMinOf1IEnumerableOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Int32})">
+            <summary>Définit le shim de IndexOfMinExtensions.IndexOfMin(IEnumerable`1&lt;!!0&gt; collection)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.IndexOfMinOf2IEnumerableOfM0FuncOfM0Int32M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1},System.Int32})">
+            <summary>Définit le shim de IndexOfMinExtensions.IndexOfMin(IEnumerable`1&lt;!!0&gt; collection, Func`3&lt;!!0,Int32,!!1&gt; selector)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimIndexOfMinExtensions.IndexOfMinOf2IEnumerableOfM0FuncOfM0Int32M1IComparerOfM1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,``1},System.Collections.Generic.IComparer{``1},System.Int32})">
+            <summary>Définit le shim de IndexOfMinExtensions.IndexOfMin(IEnumerable`1&lt;!!0&gt; collection, Func`3&lt;!!0,Int32,!!1&gt; selector, IComparer`1&lt;!!1&gt; comparer)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimInfinitePartitioner">
+            <summary>Type shim de Accord.Extensions.InfinitePartitioner</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimInfinitePartitioner.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimInfinitePartitioner.#ctor(Accord.Extensions.InfinitePartitioner)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimInfinitePartitioner.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.AllInstances.GetDynamicPartitions">
+            <summary>Définit le shim de InfinitePartitioner.GetDynamicPartitions()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.AllInstances.GetPartitionsInt32">
+            <summary>Définit le shim de InfinitePartitioner.GetPartitions(Int32 partitionCount)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.AllInstances.SupportsDynamicPartitionsGet">
+            <summary>Définit le shim de InfinitePartitioner.get_SupportsDynamicPartitions()</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimInfinitePartitioner.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimInfinitePartitioner.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.Constructor">
+            <summary>Définit le shim de InfinitePartitioner.InfinitePartitioner()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.GetDynamicPartitions">
+            <summary>Définit le shim de InfinitePartitioner.GetDynamicPartitions()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.GetPartitionsInt32">
+            <summary>Définit le shim de InfinitePartitioner.GetPartitions(Int32 partitionCount)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.InfiniteEnumerator">
+            <summary>Définit le shim de InfinitePartitioner.InfiniteEnumerator()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimInfinitePartitioner.SupportsDynamicPartitionsGet">
+            <summary>Définit le shim de InfinitePartitioner.get_SupportsDynamicPartitions()</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimPair`1">
+            <summary>Type shim de Accord.Extensions.Pair`1</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPair`1.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPair`1.#ctor(Accord.Extensions.Pair{`0})">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimPair`1.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.AllInstances.EqualsObject">
+            <summary>Définit le shim de Pair`1.Equals(Object obj)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.AllInstances.GetHashCode01">
+            <summary>Définit le shim de Pair`1.GetHashCode()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.AllInstances.ToString01">
+            <summary>Définit le shim de Pair`1.ToString()</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPair`1.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPair`1.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.Constructor">
+            <summary>Définit le shim de Pair`1.Pair`1()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.ConstructorT0T0">
+            <summary>Définit le shim de Pair`1.Pair`1(!0 first, !0 second)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.EqualsObject">
+            <summary>Définit le shim de Pair`1.Equals(Object obj)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.GetHashCode">
+            <summary>Définit le shim de Pair`1.GetHashCode()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.ImplicitOpPairOfT0TupleOfT0T0">
+            <summary>Définit le shim de Pair`1.op_Implicit(Pair`1&lt;!0&gt; pair)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.ImplicitOpTupleOfT0T0PairOfT0">
+            <summary>Définit le shim de Pair`1.op_Implicit(Tuple`2&lt;!0,!0&gt; tuple)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPair`1.ToString">
+            <summary>Définit le shim de Pair`1.ToString()</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimParallelExtensions">
+            <summary>Type shim de Accord.Extensions.ParallelExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelExtensions.WhileFuncOfBooleanActionOfParallelLoopState">
+            <summary>Définit le shim de ParallelExtensions.While(Func`1&lt;Boolean&gt; condition, Action`1&lt;ParallelLoopState&gt; body)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelExtensions.WhileParallelOptionsFuncOfBooleanActionOfParallelLoopState">
+            <summary>Définit le shim de ParallelExtensions.While(ParallelOptions parallelOptions, Func`1&lt;Boolean&gt; condition, Action`1&lt;ParallelLoopState&gt; body)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimParallelRandom">
+            <summary>Type shim de Accord.Extensions.ParallelRandom</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelRandom.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelRandom.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelRandom.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom.Next">
+            <summary>Définit le shim de ParallelRandom.Next()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom.NextBytesByteArray">
+            <summary>Définit le shim de ParallelRandom.NextBytes(Byte[] buffer)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom.NextInt32Int32">
+            <summary>Définit le shim de ParallelRandom.Next(Int32 minValue, Int32 maxValue)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom.StaticConstructor">
+            <summary>Définit le shim de ParallelRandom.ParallelRandom()</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimParallelRandom`1">
+            <summary>Type shim de Accord.Extensions.ParallelRandom`1</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelRandom`1.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelRandom`1.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimParallelRandom`1.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom`1.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom`1.InitializeFuncOfInt32T0">
+            <summary>Définit le shim de ParallelRandom`1.Initialize(Func`2&lt;Int32,!0&gt; localRandCreator)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom`1.LocalGet">
+            <summary>Définit le shim de ParallelRandom`1.get_Local()</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimParallelRandom`1.StaticConstructor">
+            <summary>Définit le shim de ParallelRandom`1.ParallelRandom`1()</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimPathExtensions">
+            <summary>Type shim de Accord.Extensions.PathExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPathExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPathExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimPathExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.EnumerateFilesDirectoryInfoStringArraySearchOption">
+            <summary>Définit le shim de PathExtensions.EnumerateFiles(DirectoryInfo dirInfo, String[] searchPatterns, SearchOption searchOption)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.GetRelativeFilePathStringDirectoryInfo">
+            <summary>Définit le shim de PathExtensions.GetRelativeFilePath(String fileName, DirectoryInfo dirInfo)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.IsDirectoryString">
+            <summary>Définit le shim de PathExtensions.IsDirectory(String path)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.IsSubfolderStringString">
+            <summary>Définit le shim de PathExtensions.IsSubfolder(String childPath, String parentPath)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.NormalizePathDelimitersString">
+            <summary>Définit le shim de PathExtensions.NormalizePathDelimiters(String path)</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimPathExtensions.NormalizePathDelimitersStringString">
+            <summary>Définit le shim de PathExtensions.NormalizePathDelimiters(String path, String normalizedDelimiter)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimRandomExtensions">
+            <summary>Type shim de Accord.Extensions.RandomExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimRandomExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimRandomExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimRandomExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimRandomExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimRandomExtensions.NextDoubleRandomDoubleDouble">
+            <summary>Définit le shim de RandomExtensions.NextDouble(Random random, Double minimum, Double maximum)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimSelectExtensions">
+            <summary>Type shim de Accord.Extensions.SelectExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSelectExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSelectExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSelectExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimSelectExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSelectExtensions.SelectOf2IEnumerableOfM0FuncOfM0M1ActionOfSingle``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Action{System.Single},System.Collections.Generic.IEnumerable{``1}})">
+            <summary>Définit le shim de SelectExtensions.Select(IEnumerable`1&lt;!!0&gt; collection, Func`2&lt;!!0,!!1&gt; selector, Action`1&lt;Single&gt; percentageAction)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.ShimSerializationExtensions">
+            <summary>Type shim de Accord.Extensions.SerializationExtensions</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.ShimSerializationExtensions.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.FromBinaryOf1Stream``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.IO.Stream,``0})">
+            <summary>Définit le shim de SerializationExtensions.FromBinary(Stream stream)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.FromXElementOf1XElement``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Xml.Linq.XElement,``0})">
+            <summary>Définit le shim de SerializationExtensions.FromXElement(XElement xElement)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.ToBinaryOf1M0Stream``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0,System.IO.Stream})">
+            <summary>Définit le shim de SerializationExtensions.ToBinary(!!0 obj, Stream stream)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.ToBinaryOf1M0String``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{``0,System.String})">
+            <summary>Définit le shim de SerializationExtensions.ToBinary(!!0 obj, String fileName)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.ShimSerializationExtensions.ToXElementOf1M0Boolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Boolean,System.Xml.Linq.XElement})">
+            <summary>Définit le shim de SerializationExtensions.ToXElement(!!0 obj, Boolean writeEmptyNamespace)</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.StubInfinitePartitioner">
+            <summary>Type stub de Accord.Extensions.InfinitePartitioner</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubInfinitePartitioner.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubInfinitePartitioner.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubInfinitePartitioner.GetDynamicPartitions">
+            <summary>Définit le stub de InfinitePartitioner.GetDynamicPartitions()</summary>
+        </member>
+        <member name="F:Accord.Extensions.Fakes.StubInfinitePartitioner.GetDynamicPartitions01">
+            <summary>Définit le stub de InfinitePartitioner.GetDynamicPartitions()</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubInfinitePartitioner.GetPartitions(System.Int32)">
+            <summary>Définit le stub de InfinitePartitioner.GetPartitions(Int32 partitionCount)</summary>
+        </member>
+        <member name="F:Accord.Extensions.Fakes.StubInfinitePartitioner.GetPartitionsInt32">
+            <summary>Définit le stub de InfinitePartitioner.GetPartitions(Int32 partitionCount)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubInfinitePartitioner.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubInfinitePartitioner</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubInfinitePartitioner.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubInfinitePartitioner.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubInfinitePartitioner.SupportsDynamicPartitions">
+            <summary>Définit le stub de InfinitePartitioner.get_SupportsDynamicPartitions()</summary>
+        </member>
+        <member name="F:Accord.Extensions.Fakes.StubInfinitePartitioner.SupportsDynamicPartitionsGet">
+            <summary>Définit le stub de InfinitePartitioner.get_SupportsDynamicPartitions()</summary>
+        </member>
+        <member name="T:Accord.Extensions.Fakes.StubPair`1">
+            <summary>Type stub de Accord.Extensions.Pair`1</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubPair`1.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubPair`1.#ctor(`0,`0)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubPair`1.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubPair`1.Equals(System.Object)">
+            <summary>Définit le stub de Pair`1.Equals(Object obj)</summary>
+        </member>
+        <member name="F:Accord.Extensions.Fakes.StubPair`1.EqualsObject">
+            <summary>Définit le stub de Pair`1.Equals(Object obj)</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubPair`1.GetHashCode">
+            <summary>Définit le stub de Pair`1.GetHashCode()</summary>
+        </member>
+        <member name="F:Accord.Extensions.Fakes.StubPair`1.GetHashCode01">
+            <summary>Définit le stub de Pair`1.GetHashCode()</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubPair`1.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubPair</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubPair`1.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Accord.Extensions.Fakes.StubPair`1.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Accord.Extensions.Fakes.StubPair`1.ToString">
+            <summary>Définit le stub de Pair`1.ToString()</summary>
+        </member>
+        <member name="F:Accord.Extensions.Fakes.StubPair`1.ToString01">
+            <summary>Définit le stub de Pair`1.ToString()</summary>
+        </member>
+    </members>
+</doc>
