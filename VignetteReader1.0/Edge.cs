@@ -13,8 +13,8 @@ namespace VignetteReader1._0
     public class Edge
     {
         private string id;
-        private string source;
-        private string target;
+        private Node source;
+        private Node target;
         private List<Point> contours;
 
         private PrincipalComponentAnalysis pca;
@@ -31,10 +31,30 @@ namespace VignetteReader1._0
             set { id = value; }
         }
 
+        public Node Source
+        {
+            get { return source; }
+            set { source = value; }
+        }
+
+        public Node Target
+        {
+            get { return target; }
+            set { target = value; }
+        }
+
         public List<Point> Contours
         {
             get { return contours; }
             set { contours = value; }
+        }
+
+        public Point getCenter()
+        {
+            int sumX = 0;int sumY = 0;
+            foreach (Point p in Contours) { sumX += p.X; sumY += p.Y; }
+                
+            return new Point(sumX/Contours.Count,sumY/Contours.Count);
         }
 
         public double[][] PCAResult

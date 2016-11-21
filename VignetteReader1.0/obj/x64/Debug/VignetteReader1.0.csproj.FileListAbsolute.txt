@@ -68,3 +68,44 @@ C:\Users\Alban\Documents\Visual Studio 2015\Projects\VignetteReader1.0\VignetteR
 C:\Users\Alban\Documents\Visual Studio 2015\Projects\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Statistics.xml
 C:\Users\Alban\Documents\Visual Studio 2015\Projects\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1.0.csprojResolveAssemblyReference.cache
 C:\Users\Alban\Documents\Visual Studio 2015\Projects\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.WindowGraphForm.resources
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\VignetteReader1.0.exe.config
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1.0.exe
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1.0.pdb
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\cvextern.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_calib3d220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_contrib220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_core220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_features2d220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_flann220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_gpu220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_highgui220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_imgproc220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_legacy220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_ml220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_objdetect220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\opencv_video220.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.dll.config
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\VignetteReader1.0.exe
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\VignetteReader1.0.pdb
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Math.Core.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Math.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Statistics.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\DotImaging.Primitives2D.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Emgu.CV.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Emgu.CV.GPU.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Emgu.CV.ML.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Emgu.CV.UI.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Emgu.Util.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\ZedGraph.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.xml
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Math.xml
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Math.Core.xml
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Accord.Statistics.xml
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\fr\Microsoft.QualityTools.Testing.Fakes.resources.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1.0.csprojResolveAssemblyReference.cache
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.vignetteReader.resources
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.Properties.Resources.resources
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.WindowGraphForm.resources
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.WindowImageForm.resources
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1.0.csproj.GenerateResource.Cache

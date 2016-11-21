@@ -1,4 +1,5 @@
 ﻿using Emgu.CV;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace VignetteReader1._0
@@ -12,8 +13,8 @@ namespace VignetteReader1._0
         private Contour<Point> contours;
         private Rectangle boundingRec;
 
-        private string incoming;
-        private string outgoing;
+        private List<Edge> incoming = new List<Edge>();
+        private List<Edge> outgoing = new List<Edge>();
 
         public string Name{
             get { return name;}
@@ -48,21 +49,21 @@ namespace VignetteReader1._0
             set { boundingRec = value; }
         }
 
-        public string Incoming
+        public List<Edge> Incoming
         {
             get{ return incoming;}
             set{incoming = value;}
         }
 
-        public string Outgoing
+        public List<Edge> Outgoing
         {
             get{return outgoing;}
             set{outgoing = value;}
         }
 
-        private Point getCenter()
+        public Point getCenter()
         {
-            Rectangle r = Contours.BoundingRectangle;
+            Rectangle r = getBoundingRectangle(0);
             return new Point(r.X + (r.Width / 2), r.Y + (r.Height / 2));
         }
 
