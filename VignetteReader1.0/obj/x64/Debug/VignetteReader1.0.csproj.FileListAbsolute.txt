@@ -109,3 +109,9 @@ C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\D
 C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.WindowGraphForm.resources
 C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1._0.WindowImageForm.resources
 C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\obj\x64\Debug\VignetteReader1.0.csproj.GenerateResource.Cache
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\x64\liblept172.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\x64\libtesseract304.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\x86\liblept172.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\x86\libtesseract304.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Tesseract.dll
+C:\Users\Cerberus\Documents\GitHub\VignetteReader1.0\VignetteReader1.0\bin\x64\Debug\Tesseract.xml

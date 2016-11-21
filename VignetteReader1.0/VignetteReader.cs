@@ -2,8 +2,11 @@
 using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using Tesseract;
 
 namespace VignetteReader1._0
 {
@@ -17,7 +20,7 @@ namespace VignetteReader1._0
 
 
         Image vignette;
-        string vignette_name = "/sample0.png";
+        string vignette_name = "/ocr0.png";
 
         Bitmap colorDisplay;
         Bitmap grayDisplay;
@@ -58,9 +61,6 @@ namespace VignetteReader1._0
 
             CvInvoke.cvPutText(img, label, new Point(center.X - (textSize.Width / 2), center.Y), ref font, new Bgr(0, 0, 0).MCvScalar);
         }
-
-        
-
         #endregion
 
         #region save/Load
@@ -429,6 +429,70 @@ namespace VignetteReader1._0
         private void connectButton_Click(object sender, EventArgs e)
         {
             connectNodesEdges();
+        }
+
+        private void textDetectButton_Click(object sender, EventArgs e)
+        {
+            string imageName = "ocr2.tif";
+            drawImage(Application.StartupPath + "/" + imageName);
+            try
+            {
+                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+                {
+                    using (var img = Pix.LoadFromFile(@"./ocr1.tif"))
+                    {
+                        using (var page = engine.Process(img))
+                        {
+                            var text = page.GetText();
+                            Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
+
+                            Console.WriteLine("Text (GetText): \r\n{0}", text);
+                            Console.WriteLine("Text (iterator):");
+                            using (var iter = page.GetIterator())
+                            {
+                                iter.Begin();
+
+                                do
+                                {
+                                    do
+                                    {
+                                        do
+                                        {
+                                            do
+                                            {
+                                                if (iter.IsAtBeginningOf(PageIteratorLevel.Block))
+                                                {
+                                                    Console.WriteLine("<BLOCK>");
+                                                }
+
+                                                Console.Write(iter.GetText(PageIteratorLevel.Word));
+                                                Console.Write(" ");
+
+                                                if (iter.IsAtFinalOf(PageIteratorLevel.TextLine, PageIteratorLevel.Word))
+                                                {
+                                                    Console.WriteLine();
+                                                }
+                                            } while (iter.Next(PageIteratorLevel.TextLine, PageIteratorLevel.Word));
+
+                                            if (iter.IsAtFinalOf(PageIteratorLevel.Para, PageIteratorLevel.TextLine))
+                                            {
+                                                Console.WriteLine();
+                                            }
+                                        } while (iter.Next(PageIteratorLevel.Para, PageIteratorLevel.TextLine));
+                                    } while (iter.Next(PageIteratorLevel.Block, PageIteratorLevel.Para));
+                                } while (iter.Next(PageIteratorLevel.Block));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                Console.WriteLine("Unexpected Error: " + ex.Message);
+                Console.WriteLine("Details: ");
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

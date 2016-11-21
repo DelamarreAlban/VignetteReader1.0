@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.edgesList = new System.Windows.Forms.ListBox();
             this.connectButton = new System.Windows.Forms.Button();
+            this.textDetectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vignetteBoxDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,7 @@
             // 
             this.nodesList.FormattingEnabled = true;
             this.nodesList.Location = new System.Drawing.Point(871, 41);
-            this.nodesList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nodesList.Margin = new System.Windows.Forms.Padding(2);
             this.nodesList.Name = "nodesList";
             this.nodesList.Size = new System.Drawing.Size(132, 407);
             this.nodesList.TabIndex = 6;
@@ -94,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(383, 17);
+            this.label1.Location = new System.Drawing.Point(527, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
@@ -103,8 +104,8 @@
             // 
             // nodesCount
             // 
-            this.nodesCount.Location = new System.Drawing.Point(448, 17);
-            this.nodesCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nodesCount.Location = new System.Drawing.Point(593, 12);
+            this.nodesCount.Margin = new System.Windows.Forms.Padding(2);
             this.nodesCount.Name = "nodesCount";
             this.nodesCount.Size = new System.Drawing.Size(52, 20);
             this.nodesCount.TabIndex = 8;
@@ -112,7 +113,7 @@
             // dimensions
             // 
             this.dimensions.AutoSize = true;
-            this.dimensions.Location = new System.Drawing.Point(320, 17);
+            this.dimensions.Location = new System.Drawing.Point(465, 12);
             this.dimensions.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dimensions.Name = "dimensions";
             this.dimensions.Size = new System.Drawing.Size(35, 13);
@@ -121,10 +122,10 @@
             // 
             // colorGraybutton
             // 
-            this.colorGraybutton.Location = new System.Drawing.Point(522, 17);
-            this.colorGraybutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.colorGraybutton.Location = new System.Drawing.Point(667, 6);
+            this.colorGraybutton.Margin = new System.Windows.Forms.Padding(2);
             this.colorGraybutton.Name = "colorGraybutton";
-            this.colorGraybutton.Size = new System.Drawing.Size(190, 18);
+            this.colorGraybutton.Size = new System.Drawing.Size(190, 24);
             this.colorGraybutton.TabIndex = 10;
             this.colorGraybutton.Text = "Color/Gray";
             this.colorGraybutton.UseVisualStyleBackColor = true;
@@ -133,7 +134,7 @@
             // arrowDectectbutton
             // 
             this.arrowDectectbutton.Location = new System.Drawing.Point(210, 12);
-            this.arrowDectectbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.arrowDectectbutton.Margin = new System.Windows.Forms.Padding(2);
             this.arrowDectectbutton.Name = "arrowDectectbutton";
             this.arrowDectectbutton.Size = new System.Drawing.Size(81, 23);
             this.arrowDectectbutton.TabIndex = 11;
@@ -144,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(917, 20);
+            this.label2.Location = new System.Drawing.Point(910, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 12;
@@ -153,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1081, 20);
+            this.label3.Location = new System.Drawing.Point(1087, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 13;
@@ -169,7 +170,7 @@
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(762, 12);
+            this.connectButton.Location = new System.Drawing.Point(986, 10);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(75, 23);
             this.connectButton.TabIndex = 15;
@@ -177,11 +178,22 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
+            // textDetectButton
+            // 
+            this.textDetectButton.Location = new System.Drawing.Point(296, 12);
+            this.textDetectButton.Name = "textDetectButton";
+            this.textDetectButton.Size = new System.Drawing.Size(75, 23);
+            this.textDetectButton.TabIndex = 16;
+            this.textDetectButton.Text = "Text";
+            this.textDetectButton.UseVisualStyleBackColor = true;
+            this.textDetectButton.Click += new System.EventHandler(this.textDetectButton_Click);
+            // 
             // vignetteReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 485);
+            this.Controls.Add(this.textDetectButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.edgesList);
             this.Controls.Add(this.label3);
@@ -221,6 +233,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox edgesList;
         private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button textDetectButton;
     }
 }
 
