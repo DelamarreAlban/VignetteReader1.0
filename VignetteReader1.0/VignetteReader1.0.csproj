@@ -134,6 +134,7 @@
   <ItemGroup>
     <Compile Include="Edge.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="Partition.cs" />
     <Compile Include="VignetteReader.cs">
       <SubType>Form</SubType>
     </Compile>

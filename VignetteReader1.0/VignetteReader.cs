@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Tesseract;
 
@@ -15,12 +16,15 @@ namespace VignetteReader1._0
         public List<string> ids = new List<string>();
         int ID_LENGTH = 12;
 
+        
+
         public List<Node> nodes = new List<Node>();
         public List<Edge> edges = new List<Edge>();
-
+        public List<Partition> partitions = new List<Partition>();
 
         Image vignette;
-        string vignette_name = "/ocr0.png";
+        string vignette_name = "/pathway1.png";
+        string name = "NAME";
 
         Bitmap colorDisplay;
         Bitmap grayDisplay;
@@ -30,11 +34,44 @@ namespace VignetteReader1._0
 
         Image<Gray, byte> shapeMask;
 
+        string xmiPath;
+        List<string> xmiFile = new List<string>();
+        List<Point> activitiesIndex = new List<Point>();
+        Point collaborationIndex;
+        List<string> xmlVignette = new List<string>();
+
         public vignetteReader()
         {
             InitializeComponent();
             drawImage(Application.StartupPath + vignette_name);
+
+            //Partition creation -- Teacher/OT_A_NC/other
+            partitions.Add(new Partition("Teacher", generateId(ID_LENGTH)));
+            partitions.Add(new Partition("OT_A_NC", generateId(ID_LENGTH)));
+            partitions.Add(new Partition("other", generateId(ID_LENGTH)));
         }
+
+        #region accessors
+        public Partition getPartition(string name)
+        {
+            foreach(Partition p in partitions)
+            {
+                if (p.Name == name)
+                    return p;
+            }
+            return null;
+        }
+
+        public Edge getEdge(string id)
+        {
+            foreach(Edge e in edges)
+            {
+                if (e.Id == id)
+                    return e;
+            }
+            return null;
+        }
+        #endregion
 
         #region Display
 
@@ -44,7 +81,7 @@ namespace VignetteReader1._0
             {
                 vignette = new Bitmap(ImagePath);
                 dimensions.Text = vignette.Width.ToString() + " x " + vignette.Height.ToString();
-                vignetteBoxDisplay.Image = new Bitmap(Application.StartupPath + vignette_name);
+                vignetteBoxDisplay.Image = new Bitmap(vignette);
                 vignetteBoxDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch (Exception ex)
@@ -79,6 +116,7 @@ namespace VignetteReader1._0
                 try
                 {
                     drawImage(openFileDialog1.FileName);
+                    name = Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
                 }
                 catch (Exception ex)
                 {
@@ -99,6 +137,18 @@ namespace VignetteReader1._0
             }
         }
 
+        private void saveImageAsTiff(string imageName, Image image)
+        {
+            try
+            {
+                image.Save(Application.StartupPath + "/text/" + imageName, System.Drawing.Imaging.ImageFormat.Tiff);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Saving image" + ex.Message);
+            }
+        }
+
         #endregion
 
         #region Node/Edge Creation
@@ -108,6 +158,22 @@ namespace VignetteReader1._0
             Node newNode = new Node();
             newNode.Id = generateId(ID_LENGTH);
             newNode.Shape = shape;
+            if(shape == "hexagon" || shape == "diamond")
+            {
+                newNode.Partition = getPartition("Teacher");
+                getPartition("Teacher").Nodes.Add(newNode);
+            }
+            else if (shape == "rectangle" || shape == "rounded")
+            {
+                newNode.Partition = getPartition("OT_A_NC");
+                getPartition("OT_A_NC").Nodes.Add(newNode);
+            }
+            else
+            {
+                newNode.Partition = getPartition("other");
+                getPartition("other").Nodes.Add(newNode);
+            }
+
             newNode.Contours = contours;
             newNode.BoundingRectangle = contours.BoundingRectangle;
 
@@ -141,35 +207,37 @@ namespace VignetteReader1._0
 
         #region Buttons
 
-        private void detectButton_Click(object sender, EventArgs e)
+        private void shapeDetectButton_Click(object sender, EventArgs e)
         {
             Bitmap colorImage = new Bitmap(vignette);
             DetectShapes(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
-            colorPictureBox.Image = colorDisplay;
-            colorPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void arrowDectectbutton_Click(object sender, EventArgs e)
         {
             Bitmap colorImage = new Bitmap(vignette);
             DetectArrows(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
-            colorPictureBox.Image = colorDisplay;
-            colorPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        private void colorGraybutton_Click(object sender, EventArgs e)
+        private void connectButton_Click(object sender, EventArgs e)
         {
-            if (colorDisplayed)
-            {
-                colorPictureBox.Image = grayDisplay;
-                colorPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            else
-            {
-                colorPictureBox.Image = colorDisplay;
-                colorPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            colorDisplayed = !colorDisplayed;
+            //Bitmap colorImage = new Bitmap(vignette);
+            //DetectShapes(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
+            //DetectArrows(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
+            connectNodesEdges();
+        }
+
+        private void xmlbutton_Click(object sender, EventArgs e)
+        {
+            Bitmap colorImage = new Bitmap(vignette);
+            DetectShapes(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
+            DetectArrows(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
+            //detectText(colorImage);
+
+
+
+            connectNodesEdges();
+            generateXmlText();
         }
 
         #endregion
@@ -211,7 +279,9 @@ namespace VignetteReader1._0
         {
             List<double> angles = new List<double>();
             for (int i = 0; i < contour.Total + 1; i++)
+            {
                 angles.Add(Math.Round(findAngle(contour[i], contour[i - 1], contour[i - 2])));
+            }
 
             angles.RemoveRange(angles.Count - 3, 1);
             angles.Sort();
@@ -229,7 +299,13 @@ namespace VignetteReader1._0
             }
             else if (contour.Total == 4 && maxAngle > 90 && minAngle < 90)
             {
-                return "diamond";
+                IEnumerable<Point> query = contour.OrderBy(p => p.Y);
+                Point[] ps = query.ToArray();
+                
+                if(10*Math.Round((double)ps[0].Y/10) != 10 * Math.Round((double)ps[1].Y/ 10))
+                    return "diamond";
+                else
+                    return "parallelogram";
             }
             else if (contour.Total == 6)
             {
@@ -239,7 +315,7 @@ namespace VignetteReader1._0
             {
                 return "rounded";
             }
-            return null;
+            return "";
         }
 
         private int getDensityAround(Point center, List<Point> listPoint, int radius)
@@ -277,6 +353,8 @@ namespace VignetteReader1._0
 
         public void DetectShapes(Bitmap colorImage, int thresholdValue, bool invert, out Bitmap processedGray, out Bitmap processedColor)
         {
+            nodes.Clear();
+            edges.Clear();
             //Remove black color to isolate shapes
             Image<Bgr, byte> c = new Image<Bgr, byte>(colorImage);
             Image<Bgr, byte> color_blackRemoved = removeRangeColor(c, new Bgr(0, 0, 0), new Bgr(250, 250, 250), true);
@@ -305,6 +383,7 @@ namespace VignetteReader1._0
                     {
                         //Console.WriteLine("NEW SHAPE");
                         string shape = getShape(currentContour);
+
                         Node n = createNewNode(shape, currentContour);
                         //setShapeLabel(color, n.Shape, n.Position);
 
@@ -325,6 +404,7 @@ namespace VignetteReader1._0
 
         public void DetectArrows(Bitmap colorImage, int thresholdValue, bool invert, out Bitmap processedGray, out Bitmap processedColor)
         {
+            edges.Clear();
             //Set working images
             Image<Bgr, byte> color = new Image<Bgr, byte>(colorImage);
             Image<Gray, byte> grayImage = new Image<Gray, byte>(colorImage);
@@ -344,21 +424,34 @@ namespace VignetteReader1._0
 
                 grayImage._Not();
                 //WindowImageForm WIF_gray = new WindowImageForm("Arrows", grayImage.ToBitmap());
-
-
+                
                 List<Point> allPoints = new List<Point>();
                 using (MemStorage storage = new MemStorage())
                 {
-
+                    //bool fromOutside = false;
                     for (Contour<Point> contours = grayImage.FindContours(Emgu.CV.CvEnum.CHAIN_APPROX_METHOD.CV_CHAIN_APPROX_SIMPLE, Emgu.CV.CvEnum.RETR_TYPE.CV_RETR_TREE, storage); contours != null; contours = contours.HNext)
                     {
-
-                        edges.Add(createNewEdge(contours));
+                        foreach(Point p in contours)
+                        {
+                            if (p.Y >= (color.Size.Height-5) || p.Y <= 5 || p.X <= 5 || p.X >= (color.Size.Width-5))
+                            {
+                                Console.WriteLine("P loc : " + p.ToString());
+                                float r = 5.0f;
+                                CircleF circle = new CircleF(p, r);
+                                color.Draw(circle, new Bgr(0, 0, 255), 1);
+                                //fromOutside = true;
+                            }
+                        }
+                        //if (!fromOutside)
+                            edges.Add(createNewEdge(contours));
+                        //else
+                            //edges.Add(createNewEdge(contours, true));
                     }
                 }
                 saveImage("Arrows.png", color.ToBitmap());
             }
 
+            Console.WriteLine("Image size : " + color.Size);
             //display resulted images
             processedColor = color.ToBitmap();
             processedGray = grayImage.ToBitmap();
@@ -373,38 +466,59 @@ namespace VignetteReader1._0
         {
             int margin = 5;
             int radiusArrow = 10;
-            int densityArrow = 10;
+            int densityArrow = 9;
             foreach(Node n in nodes)
             {
                 Rectangle r = n.getBoundingRectangle(margin);
                 List<Edge> currentEdges = new List<Edge>();
                 foreach(Edge e in edges)
                 {
-                    foreach(Point p in e.Contours)
+                    foreach (Point p in e.Contours)
                     {
+                        //Edge connected to shapes
                         if (r.Contains(p))
                         {
-
                             int d = getDensityAround(p, e.Contours, radiusArrow);
                             //Console.WriteLine("Density : " + d);
                             if (d >= densityArrow)
                             {
                                 n.Incoming.Add(e);
                                 e.Target = n;
-                            }else
+                            }
+                            else
                             {
                                 n.Outgoing.Add(e);
                                 e.Source = n;
                             }
-
                             currentEdges.Add(e);
                             break;
                         }
+                        
                     }
                 }
+            }
+            Image<Bgr, byte> c = new Image<Bgr, byte>(new Bitmap(vignette));
+            foreach(Node n in nodes)
+                setShapeLabel(c, n.Id, n.getCenter());
+            foreach (Edge e in edges)
+                setShapeLabel(c, e.Id, e.getCenter());
+
+            saveImage("resultConnect.png",c.ToBitmap());
+
+            addStartFinalNode();
+
+            addGuards();
+
+            addForkJoinNodes();
+            DisplayGraphConnection();
+        }
+
+        private void DisplayGraphConnection()
+        {
+            foreach (Node n in nodes)
+            {
                 Console.WriteLine("*******************************************************************************");
                 Console.WriteLine("Node " + n.Id + " : " + n.Shape);
-                Console.WriteLine("egdes : " + currentEdges.Count);
                 string esIn = "";
                 foreach (Edge ceIn in n.Incoming)
                     esIn += ceIn.Id + " ";
@@ -415,31 +529,353 @@ namespace VignetteReader1._0
                 Console.WriteLine("OUTGOING : " + esOut);
                 Console.WriteLine("*******************************************************************************");
             }
-            Image<Bgr, byte> c = new Image<Bgr, byte>(new Bitmap(vignette));
-            foreach(Node n in nodes)
-                setShapeLabel(c, n.Id, n.getCenter());
-            foreach (Edge e in edges)
-                setShapeLabel(c, e.Id, e.getCenter());
+        }
 
-            saveImage("resultConnect.png",c.ToBitmap());
+        private void addStartFinalNode()
+        {
+            //Final nodes -- end of path in vignette
+            List<Node> finalNodes = new List<Node>();
+            foreach(Node n in nodes)
+            {
+                if (n.Shape == "rounded")
+                    finalNodes.Add(n);
+            }
+
+            //Nodes yelding to outside
+            foreach (Edge e in edges)
+            {
+                if (e.Source != null)
+                {
+                    foreach(Point p in e.Contours)
+                    {
+                        if (p.Y >= (vignette.Size.Height - 5) || p.Y <= 5 || p.X <= 5 || p.X >= (vignette.Size.Width - 5))
+                        {
+                            if (!finalNodes.Contains(e.Source))
+                            {
+                                finalNodes.Add(e.Source);
+                                e.FromOutside = true;
+                                break;
+                            } 
+                        }
+                    }
+                }
+            }
+            nodes.Add(createFinalNode(finalNodes));
+
+            Node startNode = null;
+            //Node yelded from outside
+            foreach (Edge e in edges)
+            {
+                if (e.Target != null && e.Source == null)
+                {
+                    foreach (Point p in e.Contours)
+                    {
+                        if (p.Y >= (vignette.Size.Height - 5) || p.Y <= 5 || p.X <= 5 || p.X >= (vignette.Size.Width - 5))
+                        {
+                            if (startNode == null)
+                            {
+                                e.FromOutside = true;
+                                startNode = createStartNode(e.Target);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if(startNode != null)
+                nodes.Add(startNode);
+        }
+
+        public Node createStartNode(Node n)
+        {
+            
+            Node startNode = new Node();
+            startNode.Id = generateId(ID_LENGTH);
+            startNode.Name = "Initial Node";
+            startNode.Shape = "initialNode";
+            startNode.Partition = n.Partition;
+            n.Partition.Nodes.Add(startNode);
+
+            foreach(Edge e in n.Incoming)
+            {
+                if (e.FromOutside)
+                {
+                    Console.WriteLine("Start node");
+                    e.Source = startNode;
+                    startNode.Outgoing.Add(e);
+                    break;
+                }
+            }
+            return startNode;
+        }
+
+        public Node createFinalNode(List<Node> finalNodes)
+        {
+            Node finalNode = new Node();
+            finalNode.Id = generateId(ID_LENGTH);
+            finalNode.Name = "Activity Final Node";
+            finalNode.Shape = "finalNode";
+            finalNode.Partition = getPartition("OT_A_NC");
+            getPartition("OT_A_NC").Nodes.Add(finalNode);
+
+            foreach (Node fn in finalNodes)
+            {
+                bool fromOutside = false;
+                foreach (Edge e in fn.Outgoing)
+                {
+                    if (e.FromOutside)
+                    {
+                        e.Target = finalNode;
+                        finalNode.Incoming.Add(e);
+                        fromOutside = true;
+                    }
+                }
+                if (!fromOutside)
+                {
+                    Edge newEdge = new Edge(fn, finalNode, generateId(ID_LENGTH));
+                    edges.Add(newEdge);
+                }
+            }
+            return finalNode;
+        }
+
+        private void addForkJoinNodes()
+        {
+            int counterF = 0; int counterJ = 0;
+            List<Node> forkJoinNodes = new List<Node>();
+            foreach (Node n in nodes)
+            {
+                //fork - exception for decision node
+                if (n.Shape != "diamond" && n.Shape !="fork" && n.Outgoing.Count> 1)
+                {
+                    Console.WriteLine("Fork : " + n.Id);
+                    forkJoinNodes.Add(createFork(n, counterF++));
+                }
+                //Join
+                if (n.Shape !="join" && n.Incoming.Count > 1)
+                {
+                    Console.WriteLine("Join : " + n.Id);
+                    forkJoinNodes.Add(createJoin(n, counterJ++));
+                }
+            }
+            foreach (Node n in forkJoinNodes)
+                nodes.Add(n);
+        }
+
+        private Node createFork(Node n, int index)
+        {
+            //fork creation
+            Node fork = new Node();
+            fork.Id = generateId(ID_LENGTH);
+            fork.Name = "fork" + index;
+            fork.Shape = "fork";
+            fork.Partition = n.Partition;
+            n.Partition.Nodes.Add(fork);
+
+            //changing source of edges + outgoing of node
+            foreach (Edge e in n.Outgoing)
+            {
+                fork.Outgoing.Add(e);
+                e.Source = fork;
+            }
+            n.Outgoing.Clear();
+
+            //new edge from node to fork
+            Edge forkEdge = new Edge(n, fork, generateId(ID_LENGTH));
+            edges.Add(forkEdge);
+            return fork;
+        }
+
+        private Node createJoin(Node n, int index)
+        {
+            //fork creation
+            Node join = new Node();
+            join.Id = generateId(ID_LENGTH);
+            join.Name = "join" + index;
+            join.Shape = "join";
+            join.Partition = n.Partition;
+            n.Partition.Nodes.Add(join);
+
+            //changing target of incoming edges + inco of node
+            foreach(Edge e in n.Incoming)
+            {
+                join.Incoming.Add(e);
+                e.Target = join;
+            }
+            n.Incoming.Clear();
+
+            //new edge from join to node
+            Edge joinEdge = new Edge(join, n, generateId(ID_LENGTH));
+            edges.Add(joinEdge);
+            return join;
+        }
+
+        private void addGuards()
+        {
+            List<Node> decisionNodes = new List<Node>();
+            foreach(Node n in nodes)
+            {
+                if (n.Shape == "diamond" && n.Outgoing.Count == 3)
+                    decisionNodes.Add(n);
+            }
+            foreach(Node n in decisionNodes)
+            {
+                for(int i=0;i < 3; i++)
+                {
+                    n.Outgoing[i].Guard = "Teacher.decisionValue=" + i;
+                }
+            }
         }
 
         #endregion
 
-        private void connectButton_Click(object sender, EventArgs e)
+        #region Xmlgenerator
+
+        private void generateXmlVignette()
         {
-            connectNodesEdges();
+            xmlVignette.Clear();
+            xmlVignette.Add("<ownedBehavior xmi:type=\"uml:Activity\" xmi:id=\"" + generateId(ID_LENGTH) + "\" name=\"" + name + "\">");
+            xmlVignette.Add("<nestedClassifier xmi:type=\"uml:Collaboration\" xmi:id=\"" + generateId(ID_LENGTH) + "\" name=\"locals\"/>");
+            foreach (Node n in nodes)
+                xmlVignette.Add(n.getXml());
+            foreach (Edge e in edges)
+                xmlVignette.Add(e.getXml());
+            foreach (Partition p in partitions)
+                xmlVignette.Add(p.getXml());
+
+            xmlVignette.Add("</ownedBehavior>");
         }
 
-        private void textDetectButton_Click(object sender, EventArgs e)
+        private void generateXmlText()
         {
-            string imageName = "ocr2.tif";
-            drawImage(Application.StartupPath + "/" + imageName);
+            generateXmlVignette();
+            string[] lines = xmlVignette.ToArray();
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(Application.StartupPath + "/xmi/xmi.txt"))
+            {
+                foreach (string line in lines)
+                {
+                        file.WriteLine(line);
+                }
+                
+            }
+        }
+
+        #endregion
+
+        #region textRecognition
+
+        private void clearFolder(string FolderName)
+        {
+            DirectoryInfo dir = new DirectoryInfo(FolderName);
+
+            foreach (FileInfo fi in dir.GetFiles())
+            {
+                fi.Delete();
+            }
+
+            foreach (DirectoryInfo di in dir.GetDirectories())
+            {
+                clearFolder(di.FullName);
+                di.Delete();
+            }
+        }
+
+        private void generateTxtImages(Bitmap colorImage)
+        {
+            clearFolder(Application.StartupPath + "/text/textImages");
+
+            //Directory.CreateDirectory(Application.StartupPath + "/text/textImages");
+            int counter = 0;
+            foreach (Node n in nodes)
+            {
+                Rectangle r = n.BoundingRectangle;
+                Image<Bgr, Byte> imageToCrop = new Image<Bgr, byte>(colorImage);
+                imageToCrop.ROI = r;
+
+                Image<Bgr, Byte> textImage = new Image<Bgr, byte>(r.Size);
+                
+                CvInvoke.cvCopy(imageToCrop, textImage, IntPtr.Zero);
+
+                //LINEAR ou CUBIC
+                Image<Bgr, byte> big_textImage = textImage.Resize(5.0, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                //Image<Gray, byte> big_textImage = textImage.Resize(10.0, Emgu.CV.CvEnum.INTER.CV_INTER_NN);
+
+                Image<Bgr, byte> new_textImage = removeRangeColor(big_textImage, new Bgr(0, 0, 0), new Bgr(180, 180, 180), false);
+
+                //Binarize picture
+                Image<Gray, byte> gray_TextImage = new Image<Gray, byte>(new_textImage.ToBitmap());
+                gray_TextImage = gray_TextImage.ThresholdBinary(new Gray(110), new Gray(255));
+                
+                saveImageAsTiff("/textImages/" + counter++ + ".tif", gray_TextImage.ToBitmap());
+            }
+        }
+
+        private string extractText(string ImagePath)
+        {
             try
             {
                 using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
                 {
-                    using (var img = Pix.LoadFromFile(@"./ocr1.tif"))
+                    using (var img = Pix.LoadFromFile(ImagePath))
+                    {
+                        using (var page = engine.Process(img))
+                        {
+                            var text = page.GetText();
+                            //Console.WriteLine("Mean confidence: {0}", page.GetMeanConfidence());
+
+                            //Console.WriteLine("Text (GetText): \r\n{0}", text);
+                            return text;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.ToString());
+                Console.WriteLine("Unexpected Error: " + ex.Message);
+                Console.WriteLine("Details: ");
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
+        }
+
+        private void detectText(Image image)
+        {
+            Bitmap colorImage = new Bitmap(image);
+            generateTxtImages(colorImage);
+            for(int i=0;i < nodes.Count;i++)
+            {
+                Console.WriteLine("Image " + i + " / " + nodes.Count);
+                nodes[i].Description = extractText(Application.StartupPath + "/text/textImages/" + i + ".tif");
+                WindowImageForm wif = new WindowImageForm(i.ToString(), new Bitmap(Application.StartupPath + "/text/textImages/" + i + ".tif"));
+                Console.WriteLine("text : " + nodes[i].Description);
+            }
+        }
+
+        private void textDetectButton_Click(object sender, EventArgs e)
+        {
+            Bitmap colorImage = new Bitmap(vignette);
+            DetectShapes(colorImage,thresoldValue, true, out grayDisplay, out colorDisplay);
+            detectText(colorImage);
+
+            /*
+            string imageName = "ocr0.tif";
+            Image<Bgr, byte> c = new Image<Bgr, byte>(imageName);
+            Image<Bgr, byte> big_c = c.Resize(20.0, Emgu.CV.CvEnum.INTER.CV_INTER_NN);
+            //big_c = removeRangeColor(big_c, new Bgr(0, 0, 0), new Bgr(250, 250, 250), false);
+            Image<Gray, byte> big_c_gray = new Image<Gray, byte>(big_c.ToBitmap());
+            big_c_gray = big_c_gray.ThresholdBinary(new Gray(115), new Gray(255));
+            saveImageAsTiff("ocr_text.tif", big_c_gray.ToBitmap());
+            saveImage("ocr_test.png", big_c_gray.ToBitmap());
+            //drawImage(imageName);
+            //var img0 = Pix.LoadTiffFromMemory(c.Bytes);
+            drawImage(Application.StartupPath + "/result/" + "ocr_test.png");
+            try
+            {
+                using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+                {
+                    using (var img = Pix.LoadFromFile("./text/ocr_text.tif"))
                     {
                         using (var page = engine.Process(img))
                         {
@@ -493,6 +929,174 @@ namespace VignetteReader1._0
                 Console.WriteLine("Details: ");
                 Console.WriteLine(ex.ToString());
             }
+            */
+        }
+
+
+        #endregion
+
+        #region xmiFile
+
+        private void readXMI(string xmiPath)
+        {
+            xmiFile.Clear();
+            try
+            {
+                // Create an instance of StreamReader to read from a file.
+                // The using statement also closes the StreamReader.
+                using (StreamReader sr = new StreamReader(xmiPath))
+                {
+                    string line;
+                    // Read and display lines from the file until the end of 
+                    // the file is reached.
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        xmiFile.Add(line);
+                    }
+                }
+                xmiCheckBox.Checked = true;
+            }
+            catch (Exception e)
+            {
+                // Let the user know what went wrong.
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+
+            analyseXMI();
+        }
+
+        private void loadXMIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = Application.StartupPath;
+            openFileDialog1.Filter = "XMI Files|*.xmi";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    xmiPath = openFileDialog1.FileName;
+                    readXMI(xmiPath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading XMI file" + ex.Message);
+                }
+            }
+        }
+
+        private void analyseXMI()
+        {
+            string startActivity = "        <ownedBehavior xmi:type=\"uml:Activity\"";
+            string stopActivity = "        </ownedBehavior>";
+            string collaboration = "      <packagedElement xmi:type=\"uml:Collaboration\"";
+            StringComparison comparison = StringComparison.Ordinal;// .InvariantCulture;
+            int counter = 0;int startIndex =0;
+            foreach (string line in xmiFile)
+            {
+
+                if (line.StartsWith(startActivity, comparison))
+                {
+                    startIndex = counter;
+                }
+                else if (line.StartsWith(stopActivity, comparison))
+                {
+                    activitiesIndex.Add(new Point(startIndex, counter));
+                }
+                else if (line.StartsWith(collaboration, comparison))
+                    collaborationIndex = new Point(counter + 1, counter + 1);
+
+                counter++;
+            }
+            Console.WriteLine("Nb of activity found : " + activitiesIndex.Count);
+        }
+
+        private void integrateVignetteToXMI(Point activityIndex, List<string> vignetteActivity)
+        {
+            List<string> copyXmi = new List<string>();
+            //copybeginning
+            for(int i=0;i<activityIndex.X;i++)
+                copyXmi.Add(xmiFile[i]);
+
+            Console.WriteLine(copyXmi.Last());
+
+            //start at activity index and insert vignetteActivity
+            foreach (string s in vignetteActivity)
+                copyXmi.Add(s);
+
+            //take back the copy after the activity
+            for (int i = activityIndex.Y; i < xmiFile.Count; i++)
+                copyXmi.Add(xmiFile[i]);
+
+            xmiFile.Clear();
+            foreach (string s in copyXmi)
+                xmiFile.Add(s);
+        }
+
+        private void writeXMI()
+        {
+            if(xmiCheckBox.Checked == true)
+            {
+                System.IO.File.WriteAllText(xmiPath, string.Empty);
+                string[] lines = xmiFile.ToArray();
+                using (System.IO.StreamWriter file =
+                new System.IO.StreamWriter(xmiPath))
+                {
+                    foreach (string line in lines)
+                    {
+                        file.WriteLine(line);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No xmi loaded !");
+            }
+        }
+
+        #endregion
+
+        private void xMIIntegrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool integration = false;
+            foreach(Point acIndex in activitiesIndex)
+            {
+                if(this.name == extractName(xmiFile[acIndex.X]))
+                {
+                    integration = true;
+                    Console.WriteLine("INTEGRATION at name");
+                    integrateVignetteToXMI(acIndex, xmlVignette);
+                }
+            }
+            if(!integration)
+            {
+                Console.WriteLine("INTEGRATION");
+                integrateVignetteToXMI(collaborationIndex, xmlVignette);
+            }
+            writeXMI();
+        }
+
+        private string extractName(string xmlElement)
+        {
+            //"<ownedBehavior xmi:type=\"uml:Activity\" xmi:id=\"_wt-g9LNQEeah8_NB5gNmlQ\" name=\"sample1\">";
+                   int first = xmlElement.IndexOf("name=\"") + "name=\"".Length;
+            int last = xmlElement.LastIndexOf("\">");
+            return xmlElement.Substring(first, last - first);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bitmap colorImage = new Bitmap(vignette);
+            DetectShapes(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
+            DetectArrows(colorImage, thresoldValue, true, out grayDisplay, out colorDisplay);
+            //detectText(colorImage);
+
+            connectNodesEdges();
+            generateXmlVignette();
         }
     }
 }

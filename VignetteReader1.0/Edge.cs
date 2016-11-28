@@ -16,19 +16,42 @@ namespace VignetteReader1._0
         private Node source;
         private Node target;
         private List<Point> contours;
+        private string guard = "";
+        private bool fromOutside = false;
 
         private PrincipalComponentAnalysis pca;
         private double[][] pcaResult;
         public Edge(List<Point> points)
         {
             contours = points;
-            performPCA();
+            //performPCA();
+        }
+
+        public Edge(Node _source, Node _target, string _id)
+        {
+            id = _id;
+            source = _source;
+            source.Outgoing.Add(this);
+            target = _target;
+            target.Incoming.Add(this);
         }
 
         public string Id
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public string Guard
+        {
+            get { return guard; }
+            set { guard = value; }
+        }
+
+        public bool FromOutside
+        {
+            get { return fromOutside; }
+            set { fromOutside = value; }
         }
 
         public Node Source
@@ -133,6 +156,38 @@ namespace VignetteReader1._0
             //double[][] output2
             pcaResult = pca.Transform(dataPCA);
             
+        }
+
+        public string getXml()
+        {
+            string xmlElement = "<edge";
+            xmlElement += " xmi:type=" + "\"" + "uml:ControlFlow" + "\"";
+            xmlElement += " xmi:id=" + "\"" + Id + "\"";
+            if(Source != null)
+                xmlElement += " source=" + "\"" + Source.Id + "\"";
+            if(Target != null)
+                xmlElement += " target=" + "\"" + Target.Id + "\"";
+
+            if(guard == "")
+                xmlElement += "/>";
+            else
+            {
+                xmlElement += ">\n<guard xmi:type=\"uml:OpaqueExpression\" xmi:id=\"" + id+"___" +"\">\n";
+                xmlElement += "<body>";
+                xmlElement += guard;
+                xmlElement += "</body>\n";
+                xmlElement += "</guard>\n";
+                xmlElement += "</edge>";
+            }
+            return xmlElement;
+            //< edge xmi: type = "uml:ControlFlow" xmi: id = "_dNPt1Ya_EeaGQIHr6EmBRw"
+            //source = "_dNPtmoa_EeaGQIHr6EmBRw" target = "_dNPtm4a_EeaGQIHr6EmBRw" />
+            //< edge xmi: type = "uml:ControlFlow" xmi: id = "_FqJqF7INEea1KOgZF_jStg" source = "_FqJp9LINEea1KOgZF_jStg" target = "_FqJqBrINEea1KOgZF_jStg" >
+              //       < guard xmi: type = "uml:OpaqueExpression" xmi: id = "_FqJqGLINEea1KOgZF_jStg" >
+                //            < body > a = 1 </ body >
+                  //        </ guard >
+                    //      < weight xmi: type = "uml:LiteralInteger" xmi: id = "_FqJqGbINEea1KOgZF_jStg" value = "1" />
+                      //         </ edge >
         }
     }
 }
